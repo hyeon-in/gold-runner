@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://41dg5h6f41x4"
+path="res://.godot/imported/desert_shark.aseprite-aafa6dd65a08df61d73522ac6539d130.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/desert_shark.aseprite"
+dest_files=["res://.godot/imported/desert_shark.aseprite-aafa6dd65a08df61d73522ac6539d130.res"]
+
+[params]
+

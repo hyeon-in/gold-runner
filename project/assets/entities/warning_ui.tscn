@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://3x5q7ig1j4s8"]
+
+[ext_resource type="Texture2D" uid="uid://cl6ak0p7qqe1o" path="res://assets/sprites/ui/warning_ui.png" id="1_xqbm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1sdi"]
+atlas = ExtResource("1_xqbm0")
+region = Rect2(0, 0, 61, 69)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaioq"]
+atlas = ExtResource("1_xqbm0")
+region = Rect2(61, 0, 61, 69)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rygmw"]
+atlas = ExtResource("1_xqbm0")
+region = Rect2(0, 69, 61, 69)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcoka"]
+atlas = ExtResource("1_xqbm0")
+region = Rect2(61, 69, 61, 69)
+filter_clip = true
+
+[sub_resource type="Animation" id="Animation_yqh82"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_r1sdi"), SubResource("AtlasTexture_xaioq"), SubResource("AtlasTexture_rygmw"), SubResource("AtlasTexture_jcoka")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmt7o"]
+_data = {
+&"shake": SubResource("Animation_yqh82")
+}
+
+[node name="WarningUI" type="TextureRect" unique_id=1219012123]
+texture_filter = 1
+offset_left = 253.0
+offset_top = 82.0
+offset_right = 314.0
+offset_bottom = 151.0
+texture = SubResource("AtlasTexture_r1sdi")
+stretch_mode = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "warning_ui",
+"only_visible": false,
+"player": "CanvasLayer/TextureRect/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/warning_ui.aseprite",
+"source_uid": 3107026496485175612
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f73ebf62379e16caaa0330b0e34e3619"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1008923439]
+libraries/ = SubResource("AnimationLibrary_mmt7o")
+autoplay = &"shake"

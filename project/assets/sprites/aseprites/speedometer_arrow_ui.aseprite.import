@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b8piebnm8qmsa"
+path="res://.godot/imported/speedometer_arrow_ui.aseprite-01979ac21935c1d13bae01d2829a413d.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/speedometer_arrow_ui.aseprite"
+dest_files=["res://.godot/imported/speedometer_arrow_ui.aseprite-01979ac21935c1d13bae01d2829a413d.res"]
+
+[params]
+

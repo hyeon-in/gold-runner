@@ -1,0 +1,610 @@
+[gd_scene format=3 uid="uid://dskon0k675ofk"]
+
+[ext_resource type="PackedScene" uid="uid://ylda8a2cpjni" path="res://assets/entities/player.tscn" id="1_6it1n"]
+[ext_resource type="Script" uid="uid://dsbsv1251yjty" path="res://scripts/scenes/game_play.gd" id="1_hm83i"]
+[ext_resource type="AudioStream" uid="uid://d4kf8yb5bu7um" path="res://assets/audio/bgm/firebrand.mp3" id="2_r1jqb"]
+[ext_resource type="Texture2D" uid="uid://tiu05ywqyi2w" path="res://assets/sprites/common/circle.png" id="2_swo0f"]
+[ext_resource type="Script" uid="uid://dmolbo2celxt6" path="res://scripts/common/looping_background.gd" id="3_0daha"]
+[ext_resource type="PackedScene" uid="uid://d1w0s2mmf66" path="res://assets/entities/rock.tscn" id="3_c7ik0"]
+[ext_resource type="PackedScene" uid="uid://cssdfm2oojte" path="res://assets/entities/camera.tscn" id="3_mmt7o"]
+[ext_resource type="Texture2D" uid="uid://dd00nskfij628" path="res://assets/sprites/backgrounds/background_b.png" id="4_fm4b6"]
+[ext_resource type="Texture2D" uid="uid://ca600hdkfvfg2" path="res://assets/sprites/backgrounds/background_c.png" id="4_k38ww"]
+[ext_resource type="Texture2D" uid="uid://lw03dub7ad7i" path="res://assets/sprites/backgrounds/background_a.png" id="4_x4ub6"]
+[ext_resource type="Texture2D" uid="uid://dc47n8bjs1ruo" path="res://assets/sprites/game_play/platform.png" id="6_coaa0"]
+[ext_resource type="PackedScene" uid="uid://dn8vk2pcu4oya" path="res://assets/entities/bone.tscn" id="10_5p4h6"]
+[ext_resource type="PackedScene" uid="uid://hajd3n374ms8" path="res://assets/entities/oak_cask.tscn" id="11_yksfn"]
+[ext_resource type="PackedScene" uid="uid://22gdnanmiidu" path="res://assets/entities/desert_shark.tscn" id="12_lftnw"]
+[ext_resource type="PackedScene" uid="uid://b1v4bujpfhjyy" path="res://assets/entities/ghost.tscn" id="13_jcoka"]
+[ext_resource type="FontFile" uid="uid://blqky73tlf5if" path="res://assets/fonts/galmuri11-bold.ttf" id="14_u437b"]
+[ext_resource type="Script" uid="uid://bot4wgyedbo7e" path="res://scripts/ui/score_label.gd" id="15_37o4f"]
+[ext_resource type="Texture2D" uid="uid://bqgc1tjwmli53" path="res://assets/sprites/ui/tutorial.png" id="16_audy8"]
+[ext_resource type="PackedScene" uid="uid://re3q6hobl4rw" path="res://assets/entities/speedmeter.tscn" id="16_gdvef"]
+[ext_resource type="PackedScene" uid="uid://dqbmvf7gsijrw" path="res://assets/entities/rock_distance_ui.tscn" id="16_o3xhr"]
+[ext_resource type="FontFile" uid="uid://ckt0ntb47xol7" path="res://assets/fonts/pixelroborobo.otf" id="16_yqh82"]
+[ext_resource type="Script" uid="uid://ctwgqfeu1g1fw" path="res://scripts/ui/guide_ui.gd" id="17_0dypk"]
+[ext_resource type="PackedScene" uid="uid://3x5q7ig1j4s8" path="res://assets/entities/warning_ui.tscn" id="17_0em6x"]
+[ext_resource type="Script" uid="uid://ipp7puu2svas" path="res://scripts/ui/warning_indicator.gd" id="17_r1sdi"]
+[ext_resource type="FontFile" uid="uid://dtrmlteolbdiq" path="res://assets/fonts/galmuri7.ttf" id="17_xaioq"]
+[ext_resource type="Script" uid="uid://xmn7kmeg0kqv" path="res://scripts/ui/high_score_label.gd" id="18_rygmw"]
+[ext_resource type="Script" uid="uid://n1oylx3rlnb6" path="res://scripts/ui/game_over_screen.gd" id="22_mmt7o"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6it1n"]
+
+[sub_resource type="Curve" id="Curve_c7ik0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.7340426, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_hm83i"]
+offsets = PackedFloat32Array(0, 0.30246913, 0.6481481, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.9411765, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_8ik6i"]
+colors = PackedColorArray(0.76240367, 0.76240367, 0.76240367, 1, 1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dypk"]
+atlas = ExtResource("16_audy8")
+region = Rect2(0, 0, 102, 76)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3xhr"]
+atlas = ExtResource("16_audy8")
+region = Rect2(102, 0, 102, 76)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lftnw"]
+atlas = ExtResource("16_audy8")
+region = Rect2(0, 76, 102, 76)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0em6x"]
+atlas = ExtResource("16_audy8")
+region = Rect2(102, 76, 102, 76)
+filter_clip = true
+
+[sub_resource type="Animation" id="Animation_r1sdi"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_0dypk"), SubResource("AtlasTexture_o3xhr"), SubResource("AtlasTexture_lftnw"), SubResource("AtlasTexture_0em6x")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xaioq"]
+_data = {
+&"shake": SubResource("Animation_r1sdi")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmt7o"]
+font = ExtResource("16_yqh82")
+font_size = 32
+font_color = Color(1, 0.94509804, 0.85490197, 1)
+outline_size = 10
+outline_color = Color(0.22745098, 0.007843138, 0.05882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqh82"]
+font = ExtResource("16_yqh82")
+font_color = Color(1, 0.94509804, 0.85490197, 1)
+outline_size = 5
+outline_color = Color(0.22745098, 0.007843138, 0.05882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_37o4f"]
+font = ExtResource("14_u437b")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1sdi"]
+font = ExtResource("17_xaioq")
+font_size = 8
+font_color = Color(0.35906908, 0.35906905, 0.35906917, 1)
+
+[node name="GamePlay" type="Node2D" unique_id=1617973571]
+script = ExtResource("1_hm83i")
+_bgm = ExtResource("2_r1jqb")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=270142403]
+layer = -1000
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer" unique_id=1868942735]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="World" type="Node2D" parent="." unique_id=1660450016]
+
+[node name="Camera" parent="World" unique_id=1676523690 instance=ExtResource("3_mmt7o")]
+
+[node name="BackgroundContainer" type="Node2D" parent="World" unique_id=1658050291]
+z_index = -100
+
+[node name="BackgroundC" type="Node2D" parent="World/BackgroundContainer" unique_id=599337498]
+position = Vector2(-160, -92)
+script = ExtResource("3_0daha")
+_loop_position = Vector2(-689, -92)
+_scroll_factor = 0.05
+
+[node name="Sprite" type="Sprite2D" parent="World/BackgroundContainer/BackgroundC" unique_id=868787224]
+texture_filter = 1
+texture = ExtResource("4_k38ww")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "background_c",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/background_c.aseprite",
+"source_uid": 5801741532592840927
+}
+metadata/_aseprite_wizard_source_file_hash_ = "65f576fca686bc027b1d36ea6b94d3f4"
+
+[node name="Sprite2" type="Sprite2D" parent="World/BackgroundContainer/BackgroundC" unique_id=2018980680]
+texture_filter = 1
+position = Vector2(529, 0)
+texture = ExtResource("4_k38ww")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "background_c",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/background_c.aseprite",
+"source_uid": 5801741532592840927
+}
+metadata/_aseprite_wizard_source_file_hash_ = "65f576fca686bc027b1d36ea6b94d3f4"
+
+[node name="BackgroundB" type="Node2D" parent="World/BackgroundContainer" unique_id=278263491]
+position = Vector2(-160, -99)
+script = ExtResource("3_0daha")
+_loop_position = Vector2(-982, -99)
+_scroll_factor = 0.33
+
+[node name="Sprite" type="Sprite2D" parent="World/BackgroundContainer/BackgroundB" unique_id=564596166]
+texture_filter = 1
+texture = ExtResource("4_fm4b6")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "background_b",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/background_b.aseprite",
+"source_uid": 8651060665172491347
+}
+metadata/_aseprite_wizard_source_file_hash_ = "31e137e27c55dee54a8592bbcfafa8bb"
+
+[node name="Sprite2" type="Sprite2D" parent="World/BackgroundContainer/BackgroundB" unique_id=2090818341]
+texture_filter = 1
+position = Vector2(822, 0)
+texture = ExtResource("4_fm4b6")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "background_b",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/background_b.aseprite",
+"source_uid": 8651060665172491347
+}
+metadata/_aseprite_wizard_source_file_hash_ = "31e137e27c55dee54a8592bbcfafa8bb"
+
+[node name="BackgroundA" type="Node2D" parent="World/BackgroundContainer" unique_id=976879204]
+position = Vector2(-160, -50)
+script = ExtResource("3_0daha")
+_loop_position = Vector2(-689, -50)
+_scroll_factor = 0.66
+
+[node name="Sprite" type="Sprite2D" parent="World/BackgroundContainer/BackgroundA" unique_id=451292156]
+texture_filter = 1
+texture = ExtResource("4_x4ub6")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "background_a",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/background_a.aseprite",
+"source_uid": 9030326282130930131
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c846a7ff04af9f83b0e7729484e631ba"
+
+[node name="Sprite2" type="Sprite2D" parent="World/BackgroundContainer/BackgroundA" unique_id=1986277356]
+texture_filter = 1
+position = Vector2(529, 0)
+texture = ExtResource("4_x4ub6")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "background_a",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/background_a.aseprite",
+"source_uid": 9030326282130930131
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c846a7ff04af9f83b0e7729484e631ba"
+
+[node name="Platform" type="Node2D" parent="World/BackgroundContainer" unique_id=367029162]
+position = Vector2(-160, -3)
+script = ExtResource("3_0daha")
+_loop_position = Vector2(-689, -146)
+
+[node name="Sprite" type="Sprite2D" parent="World/BackgroundContainer/Platform" unique_id=716505299]
+texture_filter = 1
+position = Vector2(-1, 0)
+texture = ExtResource("6_coaa0")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "platform",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/platform.aseprite",
+"source_uid": 5958182740750134187
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a7c598caa69588a1b0de0b754d26f873"
+
+[node name="Sprite2" type="Sprite2D" parent="World/BackgroundContainer/Platform" unique_id=39791065]
+texture_filter = 1
+position = Vector2(528, 143)
+texture = ExtResource("6_coaa0")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "platform",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/platform.aseprite",
+"source_uid": 5958182740750134187
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a7c598caa69588a1b0de0b754d26f873"
+
+[node name="Ground" type="StaticBody2D" parent="World" unique_id=1995872275]
+position = Vector2(-5, 46)
+rotation = 0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground" unique_id=1668160223]
+shape = SubResource("WorldBoundaryShape2D_6it1n")
+
+[node name="ObstacleContainer" type="Node2D" parent="World" unique_id=677588526]
+
+[node name="Rock" parent="World/ObstacleContainer" unique_id=514357511 instance=ExtResource("3_c7ik0")]
+position = Vector2(-225, -11)
+
+[node name="Bone1" parent="World/ObstacleContainer" unique_id=379814827 instance=ExtResource("10_5p4h6")]
+position = Vector2(397, 145)
+
+[node name="Bone2" parent="World/ObstacleContainer" unique_id=1972949685 instance=ExtResource("10_5p4h6")]
+position = Vector2(718, 231)
+
+[node name="OakCask" parent="World/ObstacleContainer" unique_id=1719353620 instance=ExtResource("11_yksfn")]
+position = Vector2(612, 216)
+min_spawn_interval = 3.0
+
+[node name="DesertShark" parent="World/ObstacleContainer" unique_id=482997293 instance=ExtResource("12_lftnw")]
+position = Vector2(-125, 16)
+
+[node name="Ghost" parent="World/ObstacleContainer" unique_id=1992218738 instance=ExtResource("13_jcoka")]
+position = Vector2(330, -67)
+max_spawn_interval = 16.0
+min_spawn_interval = 4.0
+
+[node name="Player" parent="World" unique_id=188077224 instance=ExtResource("1_6it1n")]
+position = Vector2(-2, 47)
+_jump_force = 270.0
+_gravity = 440.0
+
+[node name="DustParticles" type="CPUParticles2D" parent="World" unique_id=1903635282]
+amount = 30
+texture = ExtResource("2_swo0f")
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(160, 90)
+spread = 180.0
+gravity = Vector2(-300, -200)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+scale_amount_min = 0.01
+scale_amount_max = 0.06
+scale_amount_curve = SubResource("Curve_c7ik0")
+color = Color(0.99215686, 0.8627451, 0.5921569, 1)
+color_ramp = SubResource("Gradient_hm83i")
+color_initial_ramp = SubResource("Gradient_8ik6i")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1175691445]
+layer = 10
+
+[node name="WarningIndicator" type="Control" parent="HUD" unique_id=796431531 node_paths=PackedStringArray("ghost_warning", "oak_cask_warning")]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("17_r1sdi")
+ghost_warning = NodePath("GhostWarning")
+oak_cask_warning = NodePath("OakCaskWarning")
+
+[node name="GhostWarning" parent="HUD/WarningIndicator" unique_id=1219012123 instance=ExtResource("17_0em6x")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 99.0
+grow_horizontal = 0
+
+[node name="OakCaskWarning" parent="HUD/WarningIndicator" unique_id=1358678747 instance=ExtResource("17_0em6x")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -78.0
+offset_right = -4.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RockDistanceUI" parent="HUD" unique_id=1370653555 instance=ExtResource("16_o3xhr")]
+
+[node name="GuideUI" type="TextureRect" parent="HUD" unique_id=488259181]
+texture_filter = 1
+offset_left = 3.0
+offset_top = 74.0
+offset_right = 105.0
+offset_bottom = 150.0
+texture = SubResource("AtlasTexture_0dypk")
+stretch_mode = 2
+script = ExtResource("17_0dypk")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "tutorial",
+"only_visible": false,
+"player": "CanvasLayer/GuideUI/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/tutorial.aseprite",
+"source_uid": 2400324740968031186
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a22ff7f2af81e3ca9cdde05140bfc049"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/GuideUI" unique_id=109416970]
+libraries/ = SubResource("AnimationLibrary_xaioq")
+autoplay = &"shake"
+
+[node name="SpeedmeterUI" parent="HUD" unique_id=303156136 instance=ExtResource("16_gdvef")]
+
+[node name="GameOverScreen" type="Control" parent="HUD" unique_id=1755166588]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_mmt7o")
+
+[node name="ColorRect" type="ColorRect" parent="HUD/GameOverScreen" unique_id=1918602977]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="GameOverLabel" type="Label" parent="HUD/GameOverScreen" unique_id=1818905846]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -43.0
+offset_right = 110.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_mmt7o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryMessageLabel" type="Label" parent="HUD/GameOverScreen" unique_id=686474072]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 20.0
+offset_right = 154.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Z to Retry"
+label_settings = SubResource("LabelSettings_yqh82")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=889334503]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_top = 1.0
+offset_right = -7.0
+offset_bottom = 13.0
+grow_horizontal = 0
+text = "1m"
+label_settings = SubResource("LabelSettings_37o4f")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("15_37o4f")
+
+[node name="HighScoreLabel" type="Label" parent="HUD" unique_id=435798556]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_top = 16.0
+offset_right = -7.0
+offset_bottom = 25.0
+grow_horizontal = 0
+text = "HI 1m"
+label_settings = SubResource("LabelSettings_r1sdi")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("18_rygmw")

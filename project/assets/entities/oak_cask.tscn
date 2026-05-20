@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://hajd3n374ms8"]
+
+[ext_resource type="Script" uid="uid://bc05gu7lop3pv" path="res://scripts/obstacles/default_obstacle.gd" id="1_4i6wm"]
+[ext_resource type="Texture2D" uid="uid://x2eih7py5l2i" path="res://assets/sprites/game_play/oak_cask.png" id="2_2q5nj"]
+[ext_resource type="Script" uid="uid://ea4f65mom4os" path="res://scripts/obstacles/obstacle_hitbox.gd" id="2_wjvle"]
+[ext_resource type="PackedScene" uid="uid://gfhq5ogltqwn" path="res://assets/entities/hit_effect.tscn" id="4_2q5nj"]
+[ext_resource type="AudioStream" uid="uid://cdokkxo28u2dd" path="res://assets/audio/sfx/blunt_swing_hit_splat_01_mono.wav" id="4_i7apg"]
+[ext_resource type="Texture2D" uid="uid://tiu05ywqyi2w" path="res://assets/sprites/common/circle.png" id="6_wx6vx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjvle"]
+radius = 12.0
+
+[sub_resource type="Curve" id="Curve_i7apg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_wx6vx"]
+colors = PackedColorArray(0.34117648, 0.047058824, 0.16470589, 1, 1, 1, 1, 1)
+
+[node name="OakCask" type="Node2D" unique_id=1719353620 node_paths=PackedStringArray("hitbox", "sprite", "particles")]
+script = ExtResource("1_4i6wm")
+hitbox = NodePath("ObstacleHitbox")
+sprite = NodePath("Sprite")
+particles = NodePath("CPUParticles2D")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=433722210]
+texture_filter = 1
+texture = ExtResource("2_2q5nj")
+offset = Vector2(0, -14)
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "oak_cask",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/oak_cask.aseprite",
+"source_uid": 4659230693018948835
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e0538aee61646643a954cc62d4cc0cb2"
+
+[node name="ObstacleHitbox" type="Area2D" parent="." unique_id=118452327]
+position = Vector2(0, -12)
+script = ExtResource("2_wjvle")
+hit_sound = ExtResource("4_i7apg")
+hit_effect_scene = ExtResource("4_2q5nj")
+metadata/_custom_type_script = "uid://ea4f65mom4os"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleHitbox" unique_id=157118214]
+shape = SubResource("CircleShape2D_wjvle")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=354605516]
+position = Vector2(0, -11)
+emitting = false
+amount = 20
+texture = ExtResource("6_wx6vx")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(8, 12)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.13
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_i7apg")
+color = Color(0.98039216, 0.59607846, 0.34901962, 1)
+color_initial_ramp = SubResource("Gradient_wx6vx")

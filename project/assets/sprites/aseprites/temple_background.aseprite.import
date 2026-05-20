@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d2f704an2nrrg"
+path="res://.godot/imported/temple_background.aseprite-421e6454042d4f39e0fb35a810ba8e97.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/temple_background.aseprite"
+dest_files=["res://.godot/imported/temple_background.aseprite-421e6454042d4f39e0fb35a810ba8e97.res"]
+
+[params]
+

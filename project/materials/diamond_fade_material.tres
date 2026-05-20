@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cgy2jp7u5fgjf"]
+
+[ext_resource type="Shader" uid="uid://ct3qi2pe2830k" path="res://shaders/diamond_fade.gdshader" id="1_0q138"]
+
+[resource]
+shader = ExtResource("1_0q138")
+shader_parameter/progress = 0.0
+shader_parameter/diamond_count = Vector2(32, 18)
+shader_parameter/transition_color = Color(0.03137255, 0.078431375, 0.11764706, 1)

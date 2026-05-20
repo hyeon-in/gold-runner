@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b1v4bujpfhjyy"]
+
+[ext_resource type="Texture2D" uid="uid://dyqtemxqjwwds" path="res://assets/sprites/game_play/ghost.png" id="1_kk82a"]
+[ext_resource type="Script" uid="uid://d0kr4xy4ywypc" path="res://scripts/obstacles/ghost.gd" id="1_wmqms"]
+[ext_resource type="Script" uid="uid://ea4f65mom4os" path="res://scripts/obstacles/obstacle_hitbox.gd" id="2_4b3eb"]
+[ext_resource type="PackedScene" uid="uid://gfhq5ogltqwn" path="res://assets/entities/hit_effect.tscn" id="4_hw238"]
+[ext_resource type="AudioStream" uid="uid://slnil33l8grj" path="res://assets/audio/sfx/impact_generic_09_mono.wav" id="4_wmqms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqv7i"]
+radius = 16.0
+
+[sub_resource type="Animation" id="Animation_kk82a"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_xbxc1"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4b3eb"]
+_data = {
+&"death": SubResource("Animation_kk82a"),
+&"default": SubResource("Animation_xbxc1")
+}
+
+[node name="Ghost" type="Node2D" unique_id=1992218738 node_paths=PackedStringArray("hitbox", "sprite", "animation_player")]
+script = ExtResource("1_wmqms")
+hitbox = NodePath("ObstacleHitbox")
+sprite = NodePath("Sprite")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=597422056]
+texture_filter = 1
+texture = ExtResource("1_kk82a")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "ghost",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/ghost.aseprite",
+"source_uid": 1234716854905187284
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a465d7d0521025ad01e1db7f65aeb21a"
+
+[node name="ObstacleHitbox" type="Area2D" parent="." unique_id=1181124193]
+script = ExtResource("2_4b3eb")
+hit_sound = ExtResource("4_wmqms")
+hit_effect_scene = ExtResource("4_hw238")
+metadata/_custom_type_script = "uid://ea4f65mom4os"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleHitbox" unique_id=1157905097]
+shape = SubResource("CircleShape2D_hqv7i")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1549304998]
+libraries/ = SubResource("AnimationLibrary_4b3eb")

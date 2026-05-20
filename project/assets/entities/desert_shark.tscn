@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://22gdnanmiidu"]
+
+[ext_resource type="Script" uid="uid://dxxassd6bwfum" path="res://scripts/obstacles/shark_obstacle.gd" id="1_w1gqc"]
+[ext_resource type="Texture2D" uid="uid://c2ptqk1h1qlpd" path="res://assets/sprites/game_play/desert_shark.png" id="2_gumyv"]
+[ext_resource type="Script" uid="uid://ea4f65mom4os" path="res://scripts/obstacles/obstacle_hitbox.gd" id="3_y4s1b"]
+[ext_resource type="AudioStream" uid="uid://slnil33l8grj" path="res://assets/audio/sfx/impact_generic_09_mono.wav" id="4_w1gqc"]
+[ext_resource type="PackedScene" uid="uid://gfhq5ogltqwn" path="res://assets/entities/hit_effect.tscn" id="5_cwifg"]
+[ext_resource type="PackedScene" uid="uid://3x5q7ig1j4s8" path="res://assets/entities/warning_ui.tscn" id="6_gumyv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mmt7o"]
+radius = 16.0
+
+[sub_resource type="Animation" id="Animation_jcoka"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0em6x"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_rygmw"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lftnw"]
+resource_name = "wait"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.035265),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rygmw"]
+_data = {
+&"RESET": SubResource("Animation_jcoka"),
+&"attack": SubResource("Animation_0em6x"),
+&"death": SubResource("Animation_rygmw"),
+&"wait": SubResource("Animation_lftnw")
+}
+
+[node name="DesertShark" type="Node2D" unique_id=482997293 node_paths=PackedStringArray("sprite", "animation_player", "hitbox", "warning_ui")]
+script = ExtResource("1_w1gqc")
+sprite = NodePath("Sprite2D")
+animation_player = NodePath("AnimationPlayer")
+hitbox = NodePath("ObstacleHitbox")
+warning_ui = NodePath("WarningUI")
+max_spawn_interval = 12.0
+min_spawn_interval = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1803915930]
+texture_filter = 1
+texture = ExtResource("2_gumyv")
+offset = Vector2(0, -18)
+hframes = 3
+vframes = 2
+frame = 4
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "desert_shark",
+"only_visible": false,
+"player": "ObstacleContainer/DesertShark/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/desert_shark.aseprite",
+"source_uid": 2089344740780707819
+}
+metadata/_aseprite_wizard_source_file_hash_ = "ade1e78f4c5b10419a5c767cabc6092f"
+
+[node name="ObstacleHitbox" type="Area2D" parent="." unique_id=1913636371]
+position = Vector2(0, -17)
+script = ExtResource("3_y4s1b")
+hit_sound = ExtResource("4_w1gqc")
+hit_effect_scene = ExtResource("5_cwifg")
+metadata/_custom_type_script = "uid://ea4f65mom4os"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleHitbox" unique_id=1797925853]
+shape = SubResource("CircleShape2D_mmt7o")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1534017206]
+libraries/ = SubResource("AnimationLibrary_rygmw")
+autoplay = &"wait"
+
+[node name="WarningUI" parent="." unique_id=1219012123 instance=ExtResource("6_gumyv")]
+z_index = 1
+offset_left = -35.0
+offset_top = -32.0
+offset_right = 26.0
+offset_bottom = 37.0

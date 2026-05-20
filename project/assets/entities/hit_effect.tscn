@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://gfhq5ogltqwn"]
+
+[ext_resource type="Texture2D" uid="uid://cjave78anug05" path="res://assets/sprites/game_play/hit_effect.png" id="1_ag7fa"]
+[ext_resource type="Script" uid="uid://bdj6vmjc56xmn" path="res://scripts/effects/one_shot_animated_effect.gd" id="2_no4wi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0daha"]
+atlas = ExtResource("1_ag7fa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ub6"]
+atlas = ExtResource("1_ag7fa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm4b6"]
+atlas = ExtResource("1_ag7fa")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k38ww"]
+atlas = ExtResource("1_ag7fa")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1jqb"]
+atlas = ExtResource("1_ag7fa")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p4h6"]
+atlas = ExtResource("1_ag7fa")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yksfn"]
+atlas = ExtResource("1_ag7fa")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u437b"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_0daha")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_x4ub6")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_fm4b6")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_k38ww")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_r1jqb")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5p4h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yksfn")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 100.0
+}]
+
+[node name="HitEffect" type="AnimatedSprite2D" unique_id=1105519506]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_u437b")
+animation = &"effect"
+script = ExtResource("2_no4wi")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "hit_effect",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/sprites/aseprites/hit_effect.aseprite",
+"source_uid": 2263377919654306309
+}
+metadata/_aseprite_wizard_source_file_hash_ = "28691ac6791abf4e569b19b4031ccf26"

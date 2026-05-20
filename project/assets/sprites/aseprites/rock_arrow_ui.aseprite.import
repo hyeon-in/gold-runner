@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cvrp10mklafis"
+path="res://.godot/imported/rock_arrow_ui.aseprite-8520ea17f0b99100e966f16ff14b6c4b.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/rock_arrow_ui.aseprite"
+dest_files=["res://.godot/imported/rock_arrow_ui.aseprite-8520ea17f0b99100e966f16ff14b6c4b.res"]
+
+[params]
+

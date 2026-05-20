@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bfit5do3tbo6b"
+path="res://.godot/imported/gold_statue.aseprite-c836753deba39d694cff77af479da4b4.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/gold_statue.aseprite"
+dest_files=["res://.godot/imported/gold_statue.aseprite-c836753deba39d694cff77af479da4b4.res"]
+
+[params]
+

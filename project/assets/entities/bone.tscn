@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dn8vk2pcu4oya"]
+
+[ext_resource type="Script" uid="uid://bc05gu7lop3pv" path="res://scripts/obstacles/default_obstacle.gd" id="1_s7kgl"]
+[ext_resource type="Texture2D" uid="uid://pquy3fv265b5" path="res://assets/sprites/game_play/bones.png" id="2_dfunn"]
+[ext_resource type="Script" uid="uid://dp4oftryknd7x" path="res://scripts/common/random_sprite.gd" id="3_2ysmm"]
+[ext_resource type="Script" uid="uid://ea4f65mom4os" path="res://scripts/obstacles/obstacle_hitbox.gd" id="4_dfunn"]
+[ext_resource type="AudioStream" uid="uid://bwopf67fvsvcr" path="res://assets/audio/sfx/blunt_swing_hit_brick_02_mono.wav" id="5_2ysmm"]
+[ext_resource type="Texture2D" uid="uid://tiu05ywqyi2w" path="res://assets/sprites/common/circle.png" id="6_6xk41"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xk41"]
+radius = 12.0
+
+[sub_resource type="Curve" id="Curve_6xk41"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_6xk41"]
+colors = PackedColorArray(0.7921569, 0.7921569, 0.7921569, 1, 1, 1, 1, 1)
+
+[node name="Bone" type="Node2D" unique_id=379814827 node_paths=PackedStringArray("hitbox", "sprite", "particles")]
+script = ExtResource("1_s7kgl")
+hitbox = NodePath("ObstacleHitbox")
+sprite = NodePath("Sprite2D")
+particles = NodePath("CPUParticles2D")
+use_warning = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=664708703]
+texture = ExtResource("2_dfunn")
+script = ExtResource("3_2ysmm")
+frame_size = Vector2i(46, 26)
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/bones.aseprite",
+"source_uid": 7598510136597252805
+}
+metadata/_aseprite_wizard_source_file_hash_ = "fe2ce4afe40bb4ffbf0a2fb7dbda552b"
+
+[node name="ObstacleHitbox" type="Area2D" parent="." unique_id=1740397488]
+script = ExtResource("4_dfunn")
+type = 2
+hit_sound = ExtResource("5_2ysmm")
+metadata/_custom_type_script = "uid://ea4f65mom4os"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleHitbox" unique_id=1263629142]
+shape = SubResource("CircleShape2D_6xk41")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1509199492]
+emitting = false
+amount = 10
+texture = ExtResource("6_6xk41")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(16, 4)
+direction = Vector2(1, 180)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_max = 50.0
+scale_amount_min = 0.13
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_6xk41")
+color = Color(0.9843137, 0.99607843, 0.8745098, 1)
+color_initial_ramp = SubResource("Gradient_6xk41")

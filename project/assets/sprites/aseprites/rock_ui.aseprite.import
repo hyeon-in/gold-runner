@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://lthlcwn44jhp"
+path="res://.godot/imported/rock_ui.aseprite-1e0419ddecb9fc4cd76d0fd8881dc2ee.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/rock_ui.aseprite"
+dest_files=["res://.godot/imported/rock_ui.aseprite-1e0419ddecb9fc4cd76d0fd8881dc2ee.res"]
+
+[params]
+

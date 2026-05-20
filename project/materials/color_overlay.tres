@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dhru855fq0lwg"]
+
+[ext_resource type="Shader" uid="uid://d5105kfdkewg" path="res://shaders/color_overlay.gdshader" id="1_fx5fd"]
+
+[resource]
+shader = ExtResource("1_fx5fd")

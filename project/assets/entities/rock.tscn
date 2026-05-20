@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://d1w0s2mmf66"]
+
+[ext_resource type="Script" uid="uid://b6p2brhlt3hxi" path="res://scripts/obstacles/rock.gd" id="1_2lapl"]
+[ext_resource type="Texture2D" uid="uid://gog0wohyl4ti" path="res://assets/sprites/game_play/rock.png" id="1_kjfye"]
+[ext_resource type="Texture2D" uid="uid://tiu05ywqyi2w" path="res://assets/sprites/common/circle.png" id="2_qwk0o"]
+[ext_resource type="Script" uid="uid://ea4f65mom4os" path="res://scripts/obstacles/obstacle_hitbox.gd" id="3_lmvs5"]
+[ext_resource type="PackedScene" uid="uid://gfhq5ogltqwn" path="res://assets/entities/hit_effect.tscn" id="4_d1k68"]
+[ext_resource type="AudioStream" uid="uid://6byfmwkng5gr" path="res://assets/audio/sfx/impact_stone_on_stone_05_mono.wav" id="4_p6iyu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kjfye"]
+radius = 64.0
+
+[sub_resource type="Curve" id="Curve_qwk0o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Rock" type="Node2D" unique_id=514357511 node_paths=PackedStringArray("tracking_marker", "sprite", "dust_particles")]
+script = ExtResource("1_2lapl")
+tracking_marker = NodePath("RockMarker")
+sprite = NodePath("Sprite")
+dust_particles = NodePath("DustParticles")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=978208749]
+texture_filter = 1
+position = Vector2(0, -68)
+texture = ExtResource("1_kjfye")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "rock",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/rock.aseprite",
+"source_uid": 4945971699015985442
+}
+metadata/_aseprite_wizard_source_file_hash_ = "ec4e1fbe22a099e78471c77f14361460"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=60963910]
+position = Vector2(0, -68)
+collision_layer = 8
+collision_mask = 12
+script = ExtResource("3_lmvs5")
+type = 1
+hit_sound = ExtResource("4_p6iyu")
+hit_effect_scene = ExtResource("4_d1k68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=421149980]
+shape = SubResource("CircleShape2D_kjfye")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="RockMarker" type="Marker2D" parent="." unique_id=1159293485]
+position = Vector2(73, 0)
+gizmo_extents = 6.0
+
+[node name="DustParticles" type="CPUParticles2D" parent="." unique_id=2107600511]
+amount = 40
+texture = ExtResource("2_qwk0o")
+lifetime = 0.5
+speed_scale = 0.75
+emission_shape = 3
+emission_rect_extents = Vector2(32, 3)
+gravity = Vector2(-1200, -350)
+scale_amount_min = 0.13
+scale_amount_max = 0.38
+scale_amount_curve = SubResource("Curve_qwk0o")
+color = Color(0.60784316, 0.4627451, 0.47058824, 1)

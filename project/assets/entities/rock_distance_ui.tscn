@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://dqbmvf7gsijrw"]
+
+[ext_resource type="Script" uid="uid://bxtjn0khjoaen" path="res://scripts/ui/rock_distance_ui.gd" id="1_37vqu"]
+[ext_resource type="Texture2D" uid="uid://tmq6nvkbg05b" path="res://assets/sprites/game_play/rock_arrow_ui.png" id="2_52px2"]
+[ext_resource type="Texture2D" uid="uid://r3xn5xpsvncm" path="res://assets/sprites/ui/rock_ui.png" id="3_r6u0b"]
+[ext_resource type="FontFile" uid="uid://cn6jm2l5nh06h" path="res://assets/fonts/galmuri_mono11.ttf" id="4_ioxpp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1sdi"]
+atlas = ExtResource("2_52px2")
+region = Rect2(0, 0, 41, 28)
+filter_clip = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1sdi"]
+font = ExtResource("4_ioxpp")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_0em6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RockUI:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(20, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DistanceLabel:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(51, 16)]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaioq"]
+atlas = ExtResource("2_52px2")
+region = Rect2(41, 0, 41, 28)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rygmw"]
+atlas = ExtResource("2_52px2")
+region = Rect2(0, 28, 41, 28)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcoka"]
+atlas = ExtResource("2_52px2")
+region = Rect2(41, 28, 41, 28)
+filter_clip = true
+
+[sub_resource type="Animation" id="Animation_yqh82"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RockArrowUI:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_r1sdi"), SubResource("AtlasTexture_xaioq"), SubResource("AtlasTexture_rygmw"), SubResource("AtlasTexture_jcoka")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RockUI:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(20, 14), Vector2(19, 14), Vector2(20, 15), Vector2(21, 14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DistanceLabel:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(51, 16), Vector2(50, 15), Vector2(52, 15), Vector2(52, 17)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmt7o"]
+_data = {
+&"RESET": SubResource("Animation_0em6x"),
+&"shake": SubResource("Animation_yqh82")
+}
+
+[node name="RockDistanceUI" type="Control" unique_id=1370653555 node_paths=PackedStringArray("distance_label")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 108.0
+offset_bottom = 44.0
+script = ExtResource("1_37vqu")
+distance_label = NodePath("DistanceLabel")
+
+[node name="RockArrowUI" type="TextureRect" parent="." unique_id=740600733]
+texture_filter = 1
+layout_mode = 1
+offset_right = 41.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_r1sdi")
+stretch_mode = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "rock_arrow_ui",
+"only_visible": false,
+"player": "CanvasLayer/RockDistanceUI/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/rock_arrow_ui.aseprite",
+"source_uid": 6282860023227389222
+}
+metadata/_aseprite_wizard_source_file_hash_ = "305a68cafbcebf5127fdab28a7892382"
+
+[node name="RockUI" type="TextureRect" parent="." unique_id=770607184]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 45.00004
+offset_bottom = 40.000015
+texture = ExtResource("3_r6u0b")
+stretch_mode = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "rock_ui",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/rock_ui.aseprite",
+"source_uid": 811745259690773241
+}
+metadata/_aseprite_wizard_source_file_hash_ = "bb34c691ca5b3e5f32cf53bf4b3efe38"
+
+[node name="DistanceLabel" type="Label" parent="." unique_id=1977253267]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 16.0
+offset_right = 131.00076
+offset_bottom = 30.000015
+text = "1m"
+label_settings = SubResource("LabelSettings_r1sdi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1350758378]
+libraries/ = SubResource("AnimationLibrary_mmt7o")
+autoplay = &"shake"

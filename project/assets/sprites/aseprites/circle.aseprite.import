@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://6hlr5y4tj6de"
+path="res://.godot/imported/circle.aseprite-29ce5e30ea7d9fd7bf954dabd0c226ab.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/circle.aseprite"
+dest_files=["res://.godot/imported/circle.aseprite-29ce5e30ea7d9fd7bf954dabd0c226ab.res"]
+
+[params]
+

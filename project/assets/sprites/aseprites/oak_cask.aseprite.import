@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b7m734g6f2hnf"
+path="res://.godot/imported/oak_cask.aseprite-de80a26d34a9a39205030f32efa4a52c.res"
+
+[deps]
+
+source_file="res://assets/sprites/aseprites/oak_cask.aseprite"
+dest_files=["res://.godot/imported/oak_cask.aseprite-de80a26d34a9a39205030f32efa4a52c.res"]
+
+[params]
+

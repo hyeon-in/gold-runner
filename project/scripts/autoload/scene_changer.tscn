@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dd8f0clfjwyp5"]
+
+[ext_resource type="Script" uid="uid://3ykew1vffg68" path="res://scripts/autoload/scene_changer.gd" id="1_7ray1"]
+[ext_resource type="Material" uid="uid://cgy2jp7u5fgjf" path="res://materials/diamond_fade_material.tres" id="2_7ray1"]
+
+[node name="SceneChanger" type="CanvasLayer" unique_id=210053357 node_paths=PackedStringArray("fade_color_rect")]
+script = ExtResource("1_7ray1")
+fade_color_rect = NodePath("FadeColorRect")
+fade_material = ExtResource("2_7ray1")
+
+[node name="FadeColorRect" type="ColorRect" parent="." unique_id=1632481033]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

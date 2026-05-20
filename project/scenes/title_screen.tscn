@@ -1,0 +1,532 @@
+[gd_scene format=3 uid="uid://dubi1qxufkji8"]
+
+[ext_resource type="Script" uid="uid://bjum5lul1snod" path="res://scripts/scenes/title_screen.gd" id="1_cs5ya"]
+[ext_resource type="Texture2D" uid="uid://bhga4sb4yk4gp" path="res://assets/sprites/backgrounds/temple_background.png" id="1_fgkus"]
+[ext_resource type="Texture2D" uid="uid://bhc87cxrsmtpb" path="res://assets/sprites/game_play/runner.png" id="2_mgrm8"]
+[ext_resource type="PackedScene" uid="uid://cssdfm2oojte" path="res://assets/entities/camera.tscn" id="2_mykxm"]
+[ext_resource type="Texture2D" uid="uid://m7jc478g0ljn" path="res://assets/sprites/ui/title_logo.png" id="2_sa3yf"]
+[ext_resource type="AudioStream" uid="uid://2addoao2vfyo" path="res://assets/audio/sfx/explosion_medium_fast_with_rock_debris_stereo.wav" id="2_tklts"]
+[ext_resource type="Texture2D" uid="uid://gog0wohyl4ti" path="res://assets/sprites/game_play/rock.png" id="3_dc4i4"]
+[ext_resource type="Texture2D" uid="uid://tiu05ywqyi2w" path="res://assets/sprites/common/circle.png" id="3_e54dn"]
+[ext_resource type="FontFile" uid="uid://ckt0ntb47xol7" path="res://assets/fonts/pixelroborobo.otf" id="3_s4lrb"]
+[ext_resource type="Texture2D" uid="uid://c16byvjb67q52" path="res://assets/sprites/game_play/gold_statue.png" id="5_3yumr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa3yf"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(0, 0, 384, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4lrb"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(384, 0, 384, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgrm8"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(768, 0, 384, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc4i4"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(0, 216, 384, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e54dn"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(384, 216, 384, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yumr"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(768, 216, 384, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cs5ya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa3yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4lrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgrm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc4i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e54dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yumr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Curve" id="Curve_3yumr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_cs5ya"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgrm8"]
+font = ExtResource("3_s4lrb")
+font_color = Color(0.94509804, 0.75686276, 0.039215688, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_3yumr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RunnerSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(138, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RockSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(46, -72)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RockSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GoldStatueSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(159, 126)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GoldStatueSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HighlightSprite:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RunnerSprite/RunDustParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RunnerSprite:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TitleScreenCanvas/TitleLogo:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dc4i4"]
+resource_name = "intro"
+length = 3.5
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RunnerSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.45, 3.1666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(138, 152), Vector2(138, 152), Vector2(390, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RockSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4333334, 1.6166668, 1.8166668, 1.9666668, 2.0666668, 2.15, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(46, -72), Vector2(46, -72), Vector2(46, 84), Vector2(48, 80), Vector2(49, 84), Vector2(51, 82), Vector2(52, 84), Vector2(80, 84)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RockSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6166668, 1.9666668, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.17453292519943295, 0.6108652381980153]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GoldStatueSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3166667, 0.5166667, 1.6166668, 1.7333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(159, 126), Vector2(140, 96), Vector2(140, 96), Vector2(140, 116)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GoldStatueSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HighlightSprite:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.43333337, 0.45000002, 0.50000006, 0.6, 0.7, 0.79999995, 0.9, 0.9999999, 1.1, 1.1999999, 1.3, 1.4, 1.5, 1.6, 1.7000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.4, 0.4), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RunnerSprite/RunDustParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RunnerSprite:frame")
+tracks/7/interp = 0
+tracks/7/loop_wrap = false
+tracks/7/keys = {
+"times": PackedFloat32Array(-0.016666668, 0.3166667, 0.3666667, 0.4166667, 0.4666667, 0.5166667, 0.5666667, 0.61666673, 1.7000002, 1.7500001, 1.8500001, 2.45, 2.5000002, 2.5500002, 2.6000001, 2.65, 2.7000003, 2.7500002, 2.8000002, 2.85, 2.9, 2.95, 3, 3.05, 3.1000001, 3.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50, 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TitleScreenCanvas/TitleLogo:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.28333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.6166667, 1.6333333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_rock_landing_sound"
+}, {
+"args": [],
+"method": &"screen_shake"
+}, {
+"args": [],
+"method": &"change_to_game_play_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e54dn"]
+_data = {
+&"RESET": SubResource("Animation_3yumr"),
+&"intro": SubResource("Animation_dc4i4")
+}
+
+[node name="TitleScreen" type="Node2D" unique_id=1444599776 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_cs5ya")
+animation_player = NodePath("AnimationPlayer")
+rock_landing_sound = ExtResource("2_tklts")
+game_play_scene_path = "uid://dskon0k675ofk"
+
+[node name="Camera" parent="." unique_id=1676523690 instance=ExtResource("2_mykxm")]
+position = Vector2(160, 90)
+
+[node name="TitleBackground" type="AnimatedSprite2D" parent="." unique_id=803105300]
+texture_filter = 1
+position = Vector2(160, 90)
+sprite_frames = SubResource("SpriteFrames_cs5ya")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "temple_background",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/sprites/aseprites/temple_background.aseprite",
+"source_uid": 9066671830497052612
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c5ab928733de987e39cd5005ba5217ea"
+
+[node name="HighlightSprite" type="Sprite2D" parent="." unique_id=1586064240]
+texture_filter = 1
+position = Vector2(140, 96)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_e54dn")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/common",
+"o_name": "circle",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/circle.aseprite",
+"source_uid": 2191004656593454334
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3c862c8686f5838e902c610fc1424241"
+
+[node name="GoldStatueSprite" type="Sprite2D" parent="." unique_id=1598388314]
+texture_filter = 1
+position = Vector2(159, 126)
+texture = ExtResource("5_3yumr")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "gold_statue",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/gold_statue.aseprite",
+"source_uid": 2755087301090401935
+}
+metadata/_aseprite_wizard_source_file_hash_ = "486599f029454f95d90fb72ee62532b9"
+
+[node name="RunnerSprite" type="Sprite2D" parent="." unique_id=770175966]
+position = Vector2(138, 152)
+texture = ExtResource("2_mgrm8")
+offset = Vector2(0, -15)
+hframes = 8
+vframes = 7
+frame = 40
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "runner",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/runner.aseprite",
+"source_uid": 2668800746218352401
+},
+"slice_section": true
+}
+
+[node name="RunDustParticles" type="CPUParticles2D" parent="RunnerSprite" unique_id=1668549012]
+position = Vector2(-1, -1)
+emitting = false
+amount = 12
+texture = ExtResource("3_e54dn")
+lifetime = 0.4
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+spread = 90.0
+gravity = Vector2(-1200, -360)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+scale_amount_min = 0.13
+scale_amount_max = 0.13
+scale_amount_curve = SubResource("Curve_3yumr")
+color_ramp = SubResource("Gradient_cs5ya")
+
+[node name="RockSprite" type="Sprite2D" parent="." unique_id=451480375]
+position = Vector2(46, -72)
+texture = ExtResource("3_dc4i4")
+
+[node name="TitleScreenCanvas" type="CanvasLayer" parent="." unique_id=1933676394]
+
+[node name="TitleLogo" type="TextureRect" parent="TitleScreenCanvas" unique_id=596007054]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 90.0
+grow_horizontal = 2
+texture = ExtResource("2_sa3yf")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "title_logo",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/sprites/aseprites/title_logo.aseprite",
+"source_uid": 7232069944338222909
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f43377013f4b6a8eb358eaa701d3264e"
+
+[node name="PressStartLabel" type="Label" parent="TitleScreenCanvas/TitleLogo" unique_id=805471193]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = 59.0
+offset_right = 111.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Z to Start"
+label_settings = SubResource("LabelSettings_mgrm8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2147044335]
+libraries/ = SubResource("AnimationLibrary_e54dn")
